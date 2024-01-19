@@ -3,7 +3,7 @@ import { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import img from '../../assets/signup.jpg'
-import classes from './signup.css'
+
 import { register } from '../../redux/authSlice.js'
 
 const Signup = () => {
@@ -42,23 +42,23 @@ const Signup = () => {
   }
 
   return (
-    <div className={classes.signUpContainer}>
-      <div className={classes.signUpWrapper}>
-         <div className={classes.signUpLeftSide}>
-          <img src={img} className={classes.leftImg}/>
+    <div className="signUpContainer">
+      <div className="signUpWrapper">
+         <div className="signUpLeftSide">
+          <img src={img} className="leftImg"/>
          </div>
-         <div className={classes.signUpRightSide}>
-           <h2 className={classes.title}>Sign Up</h2>
-           <form onSubmit={handleSignup} className={classes.signUpForm}>
+         <div className="signUpRightSide">
+           <h2 className="title">Sign Up</h2>
+           <form onSubmit={handleSignup} className="signUpForm">
               <input type="text" placeholder='Type username' onChange={(e) => setUsername(e.target.value)}/>
               <input type="email" placeholder='Type email'  onChange={(e) => setEmail(e.target.value)}/>
               <input type="password" placeholder='Type password'  onChange={(e) => setPassword(e.target.value)}/>
-              <button type="submit" className={classes.submitBtn}>Sign Up</button>
+              <button type="submit" className="submitBtn">Sign Up</button>
               <p>Already have an account? <Link to='/login'>Login</Link></p>
            </form>
            {
             error && (
-              <div className={classes.errorMessage}>
+              <div className="errorMessage">
                  Wrong credentials! Try different ones
               </div>
             )

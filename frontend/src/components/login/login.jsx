@@ -5,7 +5,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../redux/authSlice.js'
-import css from './css.css'
+
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -40,21 +40,21 @@ const Login = () => {
   }
 
   return (
-    <div className={css.loginContainer}>
-      <div className={css.loginWrapper}>
-          <div className={css.loginLeftSide}>
-            <img src={img} className={css.leftImg}/>
+    <div className="loginContainer">
+      <div className="loginWrapper">
+          <div className="loginLeftSide">
+            <img src={img} className="leftImg"/>
           </div>
-          <div className={css.loginRightSide}>
-            <h2 className={css.title}>Login</h2>
-            <form onSubmit={handleLogin} className={css.loginForm}>
+          <div className="loginRightSide">
+            <h2 className="title">Login</h2>
+            <form onSubmit={handleLogin} className="loginForm">
                <input type="email" placeholder='Type email' onChange={(e) => setEmail(e.target.value)}/>
                <input type="password" placeholder='Type password' onChange={(e) => setPassword(e.target.value)}/>
-               <button className={css.submitBtn}>Login</button>
+               <button className="submitBtn">Login</button>
                <p>Don't have an account? <Link to='/signup'>Sign up</Link></p>
             </form>
             {error && (
-              <div className={css.errorMessage}>
+              <div className="errorMessage">
                 Wrong credentials! Try different ones
               </div>
             )}
