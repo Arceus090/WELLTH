@@ -5,7 +5,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../redux/authSlice.js'
-
+import './css.css'
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
