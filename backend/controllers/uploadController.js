@@ -1,6 +1,6 @@
 const uploadController = require('express').Router()
 const multer = require("multer")
-const verifyToken = require('../middlewares/verifyToken')
+const verifyToken = require('../middleware/verifyToken')
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -15,12 +15,14 @@ const upload = multer({
     storage: storage
 })
 
-uploadController.post('/image', verifyToken, upload.single('image'), async(req, res) => {
+uploadController.post('/image', verifyToken, upload.single('image'), async (req, res) => {
     try {
-        return res.status(200).json({msg: "image successfully uploaded"})
+        return res.status(200).json({ msg: "Image successfully uploaded" });
     } catch (error) {
-        console.error(error)
-    }
-})
 
-module.exports = uploadController
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+module.exports = uploadController;

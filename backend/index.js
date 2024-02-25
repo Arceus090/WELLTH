@@ -8,13 +8,13 @@ const userController = require('./controllers/userController')
 const postController = require('./controllers/postController')
 const commentController = require('./controllers/commentController')
 const uploadController = require('./controllers/uploadController')
-
+app.use(cors());
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/auth', authController)
 app.use('/user', userController)
-app.use(cors());
+
 app.use('/post', postController)
 app.use('/comment', commentController)
 app.use('/upload', uploadController)

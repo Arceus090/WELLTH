@@ -2,7 +2,7 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const userController = require("express").Router()
 const Post = require('../models/Post')
-const verifyToken = require('../middlewares/verifyToken')
+const verifyToken = require('../middleware/verifyToken')
 
 // get suggested users
 userController.get('/find/suggestedUsers', verifyToken, async(req, res) => {

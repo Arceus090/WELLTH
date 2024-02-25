@@ -1,0 +1,128 @@
+.profile-detail-container .container {
+    min-height: calc(100vh - 60px);
+    max-height: 100%;
+    width: 100%;
+}
+
+.profile-detail-container .wrapper {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-detail-container .top {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.profile-detail-container .top-left-side {
+    height: 70px;
+    width: 70px;
+}
+
+.profile-detail-container .top-left-side > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-detail-container .top-right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.profile-detail-container .top-right-side > h4:first-child {
+    text-transform: capitalize;
+    font-size: 26px;
+    color: #333;
+    font-weight: bold;
+}
+
+.profile-detail-container .top-right-side > h4:last-child {
+    font-weight: 500;
+    color: #666;
+}
+
+.profile-detail-container .center {
+    display: flex;
+    justify-content: space-between;
+    gap: 10rem;
+    margin: 2.5rem 0;
+}
+
+.profile-detail-container .followings,
+.profile-detail-container .followers {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.profile-detail-container .posts-or-bookmarked {
+    display: flex;
+    justify-content: space-between;
+    gap: 8rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-detail-container .posts-or-bookmarked > button {
+    outline: none;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    background-color: #999;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.profile-detail-container .posts-or-bookmarked > button:hover {
+    background-color: rgb(171, 169, 169);
+}
+
+.profile-detail-container .posts-or-bookmarked > button.active {
+    background-color: #666;
+}
+
+.profile-detail-container .bottom {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, auto));
+    column-gap: 2.5rem;
+}
+
+.profile-detail-container .follow-btn {
+    outline: none;
+    padding: 0.25rem 0.75rem;
+    background-color: #1b15cf;
+    border: 1px solid transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.profile-detail-container .follow-btn:hover {
+    background-color: #170ff4;
+}
+
+/* responsive */
+
+@media only screen and (max-width: 992px) {
+    .profile-detail-container .wrapper {
+        margin: 1.5rem auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-detail-container .container {
+        margin-top: 2.5rem;
+        margin-bottom: 4rem;
+    }
+}

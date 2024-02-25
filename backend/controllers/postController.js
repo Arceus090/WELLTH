@@ -1,4 +1,4 @@
-const verifyToken = require('../middlewares/verifyToken')
+const verifyToken = require('../middleware/verifyToken')
 const Post = require('../models/Post')
 const User = require('../models/User')
 const postController = require('express').Router()

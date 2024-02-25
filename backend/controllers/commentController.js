@@ -1,4 +1,4 @@
-const verifyToken = require('../middlewares/verifyToken')
+const verifyToken = require('../middleware/verifyToken')
 const Comment = require('../models/Comment')
 const commentController = require('express').Router()
 

@@ -1,0 +1,234 @@
+.post-container .container {
+    min-height: 650px;
+    width: 100%;
+    margin-bottom: 5rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.post-container .container:first-child {
+    margin-top: 0;
+}
+
+.post-container .wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    padding-bottom: 1rem;
+    height: 100%;
+    background-color: #f4f0f0;
+    border: 1px solid #333;
+    width: 90%;
+}
+
+/* top */
+.post-container .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.post-container .topLeft {
+    text-decoration: none;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.post-container .profileMetadata {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-container .profileMetadata > span:first-child {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.post-container .profileMetadata > span:last-child {
+    font-size: 15px;
+    color: #555;
+}
+
+.post-container .profileUserImg {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-container .deleteModal {
+    position: absolute;
+    right: 1.5rem;
+    top: 2rem;
+    background-color: #878181;
+    color: #fff;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.post-container .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.post-container .buttons > button {
+    outline: none;
+    border: none;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+}
+
+/* center */
+.post-container .center {
+    height: fit-content;
+    width: 100%;
+}
+
+.post-container .center > .desc {
+    font-size: 18px;
+    color: #333;
+    padding: 1rem;
+}
+
+.post-container .center > .location {
+    color: #333;
+    padding: 1rem;
+}
+
+.post-container .center > .postImg {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* controls */
+.post-container .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 25px;
+}
+
+.post-container .controls.showComment {
+    border-bottom: 1px solid #333;
+}
+
+.post-container .controlsLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.post-container .comments {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 1.5rem 0.75rem;
+    padding-left: 0;
+    border-bottom: 1px solid #555;
+    max-height: 550px;
+    overflow: auto;
+}
+
+/* post comment section */
+.post-container .postCommentSection {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1.25rem;
+}
+
+.post-container .inputSection {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 17px;
+    width: 90%;
+    padding-left: 0.5rem;
+    transition: 150ms all;
+}
+
+.post-container .inputSection:focus {
+    padding-left: 0.75rem;
+}
+
+.post-container .postCommentSection > button {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #285ad8;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 150ms all ease-in-out;
+}
+
+.post-container .postCommentSection > button:hover {
+    color: #2828ba;
+}
+
+.post-container .emptyCommentMsg {
+    display: inline-block;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    color: #f00;
+    font-size: 18px;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 992px) {
+    .post-container .container {
+        min-height: 525px;
+    }
+
+    .post-container .center > .postImg {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .post-container .center > .desc {
+        font-size: 16px;
+        padding: 0.75rem;
+    }
+
+    .post-container .comments {
+        gap: 1.5rem;
+        padding: 1.5rem 0.75rem;
+        padding-left: 0;
+        border-bottom: 1px solid #555;
+        max-height: 450px;
+        overflow: auto;
+    }
+
+    .post-container .inputSection {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .post-container .container {
+        min-height: 500px;
+        width: 300px;
+        margin-left: auto;
+        margin-bottom: 3rem;
+    }
+
+    .post-container .center > .postImg {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .post-container .comment {
+        height: 400px;
+    }
+}
