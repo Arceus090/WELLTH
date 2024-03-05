@@ -55,6 +55,32 @@
 .navbar-container .center:focus-within {
     border-color: #000;
 }
+.navbar-container .allUsersContainer{
+    position: absolute;
+    padding: 0.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    top: 3rem;
+    max-height: 300px;
+    overflow: auto;
+    background-color: #efefef;
+    border-radius: 12px;
+}
+
+.navbar-container .allUsersContainer > a > img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.navbar-container .allUsersContainer > a{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
 /* Navbar right */
 .navbar-container .right {

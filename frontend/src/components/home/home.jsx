@@ -1,5 +1,5 @@
 import React from 'react'
-import Posts from '../post/Post'
+import Posts from '../posts/Posts'
 import ProfileCard from '../profileCard/ProfileCard'
 import Rightside from '../rightside/Rightside'
 import SuggestedUsers from '../suggestedUser/SuggestedUser'

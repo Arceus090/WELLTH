@@ -26,3 +26,4 @@ uploadController.post('/image', verifyToken, upload.single('image'), async (req,
 });
 
 module.exports = uploadController;
+

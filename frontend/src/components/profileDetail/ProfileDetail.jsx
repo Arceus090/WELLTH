@@ -87,13 +87,13 @@ const ProfileDetail = () => {
       <div className="container">
         <div className="wrapper">
           <div className="top">
-            <div className="topLeftSide">
+            <div className="top-left-side">
               <img
                 src={profile?.profileImg ? `http://localhost:5000/images/${profile?.profileImg}` : man}
                 className="profileImg"
               />
             </div>
-            <div className="topRightSide">
+            <div className="top-right-side">
               <h4>{profile?.username}</h4>
               <h4>Bio: {profile?.desc ? profile.desc : 'Life is full of adventures'}</h4>
             </div>
@@ -108,7 +108,7 @@ const ProfileDetail = () => {
             <div className="followers">Followers: {profile?.followers?.length}</div>
           </div>
           {user._id === profile?._id && (
-            <div className="postsOrBookmarked">
+            <div className="posts-or-bookmarked">
               <button onClick={() => setShow('mypost')} className={`${show === 'mypost' && 'active'}`}>
                 My posts
               </button>

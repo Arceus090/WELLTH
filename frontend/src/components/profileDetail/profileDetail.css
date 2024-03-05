@@ -97,7 +97,7 @@
     column-gap: 2.5rem;
 }
 
-.profile-detail-container .follow-btn {
+.profile-detail-container .followBtn {
     outline: none;
     padding: 0.25rem 0.75rem;
     background-color: #1b15cf;
@@ -108,9 +108,10 @@
     font-size: 18px;
 }
 
-.profile-detail-container .follow-btn:hover {
+.profile-detail-container .followBtn:hover {
     background-color: #170ff4;
 }
+
 
 /* responsive */
 

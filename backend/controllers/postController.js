@@ -54,14 +54,20 @@ postController.get('/find/:id', async (req, res) => {
 // create
 postController.post('/', verifyToken, async (req, res) => {
     try {
-        const userId = mongoose.Types.ObjectId(req.user.id)
-        const newPost = await Post.create({ ...req.body, user: userId })
+        // Ensure req.user.id is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(req.user.id)) {
+            return res.status(400).json({ msg: 'Invalid user ID' })
+        }
+        
+        // Create a new post with user ID from req.user.id
+        const newPost = await Post.create({ ...req.body, user: req.user.id })
 
         return res.status(201).json(newPost)
     } catch (error) {
-        return res.status(500).json(error.message)
+        return res.status(500).json({ msg: 'Failed to create post', error: error.message })
     }
 })
+
 
 // update
 postController.put('/:id', verifyToken, async (req, res) => {

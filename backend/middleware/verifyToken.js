@@ -15,7 +15,9 @@ const verifyToken = (req, res, next) => {
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
         if (err) {
             if (err.name === "TokenExpiredError") {
-                return res.status(403).json({ msg: "Token expired" });
+                // Redirect to login page with message
+                req.flash('error', 'Token expired. You have been redirected to the login page.');
+                return res.redirect('/login'); // Adjust the route to your login page
             } else {
                 return res.status(403).json({ msg: "Invalid token" });
             }
