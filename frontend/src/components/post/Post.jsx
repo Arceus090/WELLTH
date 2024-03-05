@@ -130,7 +130,9 @@ const Post = ({ post }) => {
         <div className="wrapper">
           <div className="top">
             <Link to={`/profileDetail/${post?.user?._id}`} className="topLeft">
-              <img src={noman} className="profileUserImg"/>
+              {/* <img src={noman} className="profileUserImg"/> */}
+              <img src={post?.user?.profileImg ? `http://localhost:5000/images/${post.user.profileImg}` : noman} className="profileUserImg"/>
+
               <div className="profileMetadata">
                 <span>{capitalizeFirstLetter(post?.user?.username)}</span>
                 <span>{format(post?.createdAt)}</span>

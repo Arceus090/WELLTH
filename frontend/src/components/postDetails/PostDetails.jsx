@@ -94,7 +94,9 @@ const PostDetails = () => {
         <div className="right">
           <div className="wrapperTopSide">
             <Link to={`/profileDetail/${post?.user?._id}`} className="topRightSide">
-              <img src={man} className="profileImage" />
+              {/* <img src={man} className="profileImage" /> */}
+              <img src={post?.user?.profileImg ? `http://localhost:5000/images/${post.user.profileImg}` : man} className="profileImage" />
+
               <div className="userData">
                 <span>{post?.user?.username}</span>
                 <span>{post?.location ? post?.location : "Somewhere around the globe"}</span>

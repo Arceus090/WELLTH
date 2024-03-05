@@ -41,7 +41,9 @@ const Rightside = () => {
             
              <Link className="user" to={`/profileDetail/${friend._id}`} key={friend._id}>
               
-              <img src={man} className="profileUserImg"/>
+              {/* <img src={man} className="profileUserImg"/> */}
+              <img src={friend?.profileImg ? `http://localhost:5000/images/${friend.profileImg}` : man} className="profileUserImg"/>
+
               <div className="userData">
                 <span>{capitalizeFirstLetter(friend.username)}</span>
               </div>

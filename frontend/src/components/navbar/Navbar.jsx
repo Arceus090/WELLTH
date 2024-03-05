@@ -2,6 +2,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineClose, AiOutlineFileImage, AiOutlineLogout, AiOutlineSearch, AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineMessage } from 'react-icons/ai';
 import {GiHamburgerMenu} from 'react-icons/gi'
 import { logout, updateUser } from '../../redux/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,6 +10,8 @@ import man from '../../assets/noman.png'
 import './navbar.css'
 import { useState } from 'react'
 import { useEffect } from 'react'
+
+
 
 const Navbar = () => {
   const {token, user} = useSelector((state) => state.auth)
@@ -121,7 +124,7 @@ return (
           <div onClick={() => setSearchText("")} className="allUsersContainer">
             {filteredUsers?.map((user) => (
               <Link to={`/profileDetail/${user._id}`} key={user._id}>
-                <img src={man}/>
+                <img src={user?.profileImg ? `http://localhost:5000/images/${user.profileImg}` : man} />
                 <div className="userData">
                   <span>{user?.username}</span>
                   <span>{user?.bio?.slice(0, 10)}</span>
@@ -135,11 +138,20 @@ return (
         <Link to='/upload' style={{ textDecoration: 'none', color: 'inherit' }}>
           Upload
         </Link>
+        <Link to="/chat">
+          <AiOutlineMessage />
+        </Link>
         <div className="icons">
           <AiOutlineUser />
           <AiOutlineLogout onClick={handleLogout} />
         </div>
-        <img src={man} className="profileUserImg" onClick={() => setShowModal(prev => !prev)} />
+       
+        <img
+          src={user?.profileImg ? `http://localhost:5000/images/${user?.profileImg}` : man}
+          className="profileUserImg"
+          onClick={() => setShowModal(prev => !prev)}
+        />
+
         {showModal &&
           <div className="modal">
             <span onClick={handleShowForm}>Update Profile</span>

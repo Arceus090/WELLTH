@@ -92,6 +92,8 @@ const ProfileDetail = () => {
                 src={profile?.profileImg ? `http://localhost:5000/images/${profile?.profileImg}` : man}
                 className="profileImg"
               />
+             
+
             </div>
             <div className="top-right-side">
               <h4>{profile?.username}</h4>

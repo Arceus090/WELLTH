@@ -17,7 +17,9 @@ const ProfileCard = () => {
       <div className="wrapper">
         <div className="top">
           <div className="imgContainer">
-            <img src={man} className="profileUserImg"/>
+            {/* <img src={man} className="profileUserImg"/> */}
+            <img src={user?.profileImg ? `http://localhost:5000/images/${user.profileImg}` : man} className="profileUserImg"/>
+
           </div>
           <div className="usernameAndCreatedAt">
             <p><span>Username:</span> {capitalizeFirstLetter(user.username)}</p>

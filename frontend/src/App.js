@@ -1,17 +1,23 @@
 import './App.css';
-
+import React, { useEffect } from 'react';
 import Navbar from './components/navbar/Navbar';
 import {Routes, Route, Navigate} from 'react-router-dom'
 import Home from './components/home/home';
 import Login from './components/login/login';
 import Signup from './components/signup/Signup';
 import Upload from './components/upload/Upload';
+import Chat from './components/chat/Chat'
+import { initializeSessionTimer } from './sessionTimer';
 import ProfileDetail from './components/profileDetail/ProfileDetail';
 import PostDetails from './components/postDetails/PostDetails';
 import { useSelector } from 'react-redux';
 
 function App() {
  const {user} = useSelector((state) => state.auth)
+
+ useEffect(() => {
+  initializeSessionTimer(); // Start the session timer when the application starts
+}, []);
 
   return (
     <div>
@@ -23,6 +29,7 @@ function App() {
         <Route path='/upload' element={user ? <Upload /> : <Navigate to='/login' />} />
         <Route path='/profileDetail/:id' element={user ? <ProfileDetail /> : <Navigate to='/login' />} />
         <Route path='/postDetails/:id' element={user ? <PostDetails /> : <Navigate to='/login' />} />
+        <Route path='/chat' element={user ? <Chat /> : <Navigate to='/login' />} />
       </Routes>
     
     </div>
