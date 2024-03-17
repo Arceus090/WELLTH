@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { AiOutlineClose, AiOutlineFileImage, AiOutlineLogout, AiOutlineSearch, AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineFileImage, AiOutlineLogout, AiOutlineSearch, AiOutlineUser,AiOutlineFileText, AiOutlineForm } from 'react-icons/ai'
 import { AiOutlineMessage } from 'react-icons/ai';
 import {GiHamburgerMenu} from 'react-icons/gi'
 import { logout, updateUser } from '../../redux/authSlice'
@@ -140,6 +140,12 @@ return (
         </Link>
         <Link to="/chat">
           <AiOutlineMessage />
+        </Link>
+        <Link to="/articleform">
+        <AiOutlineForm />
+        </Link>
+        <Link to="/articlelist">
+        <AiOutlineFileText />
         </Link>
         <div className="icons">
           <AiOutlineUser />

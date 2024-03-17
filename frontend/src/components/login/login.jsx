@@ -28,9 +28,13 @@ const Login = () => {
       })
 
       const data = await res.json()
-
-      dispatch(login(data))
-      navigate('/')
+      
+      if (data.isAdmin) {
+        navigate('/admindashboard')
+      } else {
+        dispatch(login(data))
+        navigate('/')
+      }
     } catch (error) {
       setError(true)
       setTimeout(() => {

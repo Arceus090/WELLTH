@@ -35,6 +35,11 @@ const UserSchema = new mongoose.Schema({
     bookmarkedPosts: {
         type: Array,
         default: []
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user'
     }
 }, {timestamps: true})
 

@@ -9,6 +9,8 @@ const postController = require('./controllers/postController')
 const commentController = require('./controllers/commentController')
 const uploadController = require('./controllers/uploadController')
 const chatController = require('./controllers/chatController');
+const verifyToken = require('./middleware/verifyToken'); 
+const articleController = require('./controllers/articleController'); 
 
 // CONNECTING TO THE DATABASE (mongoDB)
 mongoose.connect(process.env.MONGO_URL)
@@ -30,7 +32,8 @@ app.use(express.urlencoded({extended: true}))
 app.use('/auth', authController)
 app.use('/user', userController)
 app.use('/chat', chatController)
-app.use('/post', postController)
-app.use('/comment', commentController)
+app.use('/post',verifyToken, postController)
+app.use('/comment',verifyToken, commentController)
 app.use('/upload', uploadController)
+app.use('/article', verifyToken, articleController);
 

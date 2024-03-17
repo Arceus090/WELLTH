@@ -10,11 +10,17 @@ import Chat from './components/chat/Chat'
 import { initializeSessionTimer } from './sessionTimer';
 import ProfileDetail from './components/profileDetail/ProfileDetail';
 import PostDetails from './components/postDetails/PostDetails';
+import AdminDashboard from './components/admin/AdminDasboard';
 import { useSelector } from 'react-redux';
+import ArticleForm from './components/Article/ArticleForm';
+import ArticleList from './components/Article/ArticleLists';
 
 function App() {
  const {user} = useSelector((state) => state.auth)
 
+ const isAdmin = (data) => {
+  return data.isAdmin;
+}
  useEffect(() => {
   initializeSessionTimer(); // Start the session timer when the application starts
 }, []);
@@ -30,6 +36,9 @@ function App() {
         <Route path='/profileDetail/:id' element={user ? <ProfileDetail /> : <Navigate to='/login' />} />
         <Route path='/postDetails/:id' element={user ? <PostDetails /> : <Navigate to='/login' />} />
         <Route path='/chat' element={user ? <Chat /> : <Navigate to='/login' />} />
+        <Route path='/articleform' element={user ? <ArticleForm /> : <Navigate to='/login' />} />
+        <Route path='/articlelist' element={user ? <ArticleList /> : <Navigate to='/login' />} />
+        <Route path="/admindashboard" element={!user ? <Navigate to='/' /> : isAdmin(user) ? <AdminDashboard /> : <Navigate to='/login' />} />
       </Routes>
     
     </div>
