@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import man from '../../assets/noman.png';
 import { handleFollow } from '../../redux/authSlice';
-import PostPhoto from '../postPhoto/PostPhoto';
+import PostPhoto from '../Photo/Photo';
 import './profileDetail.css';
 
 const ProfileDetail = () => {
@@ -16,48 +16,49 @@ const ProfileDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  // fetch profile
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const res = await fetch(`http://localhost:5000/user/find/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const data = await res.json();
-        setProfile(data);
-
-        if (user?._id !== data?._id) {
-          setIsFollowed(user?.followings?.includes(data?._id));
+ // fetch profile
+ useEffect(() => {
+  const fetchProfile = async() => {
+     try {
+      const res = await fetch(`http://localhost:5000/user/find/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
         }
-      } catch (error) {
-        console.error(error);
+      })
+      const data  = await res.json()
+      setProfile(data)
+
+      if(user?._id !== data?._id){
+        setIsFollowed(user?.followings?.includes(data?._id))
       }
-    };
-    
-    if (id) { // Add this condition to prevent fetch when id is undefined
-      fetchProfile();
+     } catch (error) {
+      console.error(error)
+     }
+  }
+  fetchProfile()
+}, [id])
+
+// fetch profile posts
+useEffect(() => {
+  const fetchProfilePosts = async() => {
+    try {
+      const res = await fetch(`http://localhost:5000/post/find/userposts/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = await res.json();
+      setProfilePosts(data);
+    } catch (error) {
+      console.error(error);
     }
-  }, [id, user._id, token]);
+  };
 
-  // fetch profile posts
-  useEffect(() => {
-    const fetchProfilePosts = async () => {
-      try {
-        if (id) { // Add this condition to prevent fetch when id is undefined
-          const res = await fetch(`http://localhost:5000/post/find/userposts/${id}`);
-          const data = await res.json();
-          setProfilePosts(data || []);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  fetchProfilePosts();
+}, [id, token]);
 
-    fetchProfilePosts();
-  }, [id]);
-
+  
   // handle follow function
   const handleFollowFunction = async () => {
     try {
@@ -114,9 +115,7 @@ const ProfileDetail = () => {
               <button onClick={() => setShow('mypost')} className={`${show === 'mypost' && 'active'}`}>
                 My posts
               </button>
-              <button onClick={() => setShow('bookmarked')} className={`${show === 'bookmarked' && 'active'}`}>
-                Bookmarked
-              </button>
+             
             </div>
           )}
           {show === 'mypost' && profilePosts?.length > 0 ? (
@@ -128,15 +127,7 @@ const ProfileDetail = () => {
           ) : show === 'mypost' ? (
             <h2>Profile has no posts</h2>
           ) : null}
-          {show === 'bookmarked' && user?.bookmarkedPosts?.length > 0 ? (
-            <div className="bottom">
-              {user.bookmarkedPosts.map((post) => (
-                <PostPhoto post={post} key={post._id} />
-              ))}
-            </div>
-          ) : show === 'bookmarked' ? (
-            <h2>You have no bookmarked posts</h2>
-          ) : null}
+         
         </div>
       </div>
     </div>

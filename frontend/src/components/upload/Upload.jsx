@@ -58,14 +58,14 @@ const Upload = () => {
     <div className="upload-container">
     <div className="container">
       <div className="wrapper">
-        <h2>Upload Post</h2>
+        <h2>UPLOAD POST</h2>
         <form onSubmit={handleCreatePost}>
            <input type="text" name="title" placeholder="Title..." onChange={handleState}/>
            <input type="text" name="desc" placeholder="Description..." onChange={handleState}/>
-           <label htmlFor='photo'>Upload photo <AiOutlineFileImage /></label>
+           <label htmlFor='photo'>IMAGE: <AiOutlineFileImage /></label>
            <input type="file" id='photo' style={{display: 'none'}} onChange={(e) => setPhoto(e.target.files[0])}/>
            <input type="text" name="location" placeholder="Location..." onChange={handleState}/>
-           <button>Submit</button>
+           <button>SUBMIT</button>
         </form>
       </div>
     </div>

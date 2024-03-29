@@ -4,11 +4,11 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
-import './rightside.css'
+import './friend.css'
 import man from '../../assets/noman.png'
 import { capitalizeFirstLetter } from '../util/capitalizeFirstLetter'
 
-const Rightside = () => {
+const Friend = () => {
   const [friends, setFriends] = useState([])
   const {user, token} = useSelector((state) => state.auth)
 
@@ -34,7 +34,7 @@ const Rightside = () => {
     <div className="right-side-container">
     <div className="container">
       <div className="wrapper">
-      <span>YOUR FRIENDS </span> 
+      <span><b>YOUR FRIENDS </b></span> 
         {friends?.length > 0 ? (
           
           friends?.map((friend) => (
@@ -57,4 +57,4 @@ const Rightside = () => {
   )
 }
 
-export default Rightside
+export default Friend

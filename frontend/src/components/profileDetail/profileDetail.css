@@ -2,6 +2,7 @@
     min-height: calc(100vh - 60px);
     max-height: 100%;
     width: 100%;
+    margin-top: 100px;
 }
 
 .profile-detail-container .wrapper {
@@ -21,8 +22,8 @@
 }
 
 .profile-detail-container .top-left-side {
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    width: 100px;
 }
 
 .profile-detail-container .top-left-side > img {
@@ -53,7 +54,7 @@
 .profile-detail-container .center {
     display: flex;
     justify-content: space-between;
-    gap: 10rem;
+    gap: 5rem;
     margin: 2.5rem 0;
 }
 
@@ -67,23 +68,24 @@
 .profile-detail-container .posts-or-bookmarked {
     display: flex;
     justify-content: space-between;
-    gap: 8rem;
+    gap: 4rem;
     margin-bottom: 1.5rem;
 }
 
 .profile-detail-container .posts-or-bookmarked > button {
     outline: none;
     border: none;
-    padding: 0.5rem 1.25rem;
-    background-color: #999;
+    padding: 0.5rem 1.5rem;
+    background-color: #333;
     color: #fff;
     border-radius: 12px;
     cursor: pointer;
     font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
 .profile-detail-container .posts-or-bookmarked > button:hover {
-    background-color: rgb(171, 169, 169);
+    background-color: #555;
 }
 
 .profile-detail-container .posts-or-bookmarked > button.active {
@@ -93,28 +95,27 @@
 .profile-detail-container .bottom {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, auto));
-    column-gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
 }
 
 .profile-detail-container .followBtn {
     outline: none;
-    padding: 0.25rem 0.75rem;
-    background-color: #1b15cf;
+    padding: 0.5rem 1.5rem;
+    background-color:  #393e46; 
     border: 1px solid transparent;
     cursor: pointer;
     border-radius: 8px;
     color: #fff;
     font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
 .profile-detail-container .followBtn:hover {
-    background-color: #170ff4;
+    background-color: rgb(69, 111, 167); 
 }
 
-
 /* responsive */
-
 @media only screen and (max-width: 992px) {
     .profile-detail-container .wrapper {
         margin: 1.5rem auto;

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import './ProfileCard.css'
+import './Card.css'
 import man from '../../assets/noman.png'
 import {Link} from 'react-router-dom'
 import { capitalizeFirstLetter } from '../util/capitalizeFirstLetter'
@@ -14,27 +14,31 @@ const ProfileCard = () => {
     
     <div className="profile-card-container">
     <div className="container">
+    <Link style={{textDecoration: 'none'}} to={`/profileDetail/${user._id}`}>
+          <h3 className="myProfile">MY PROFILE</h3>
+        </Link>
       <div className="wrapper">
         <div className="top">
           <div className="imgContainer">
-            {/* <img src={man} className="profileUserImg"/> */}
+          
             <img src={user?.profileImg ? `http://localhost:5000/images/${user.profileImg}` : man} className="profileUserImg"/>
 
           </div>
           <div className="usernameAndCreatedAt">
             <p><span>Username:</span> {capitalizeFirstLetter(user.username)}</p>
             <p><span>Created At:</span> {format(user.createdAt)}</p>
+           <p><span className="shortBio">Bio:</span> {user?.bio ? user.bio : "Live is full of adventures"}</p>
           </div>
         </div>
-        <hr />
+      
         <div className="bottom">
           <p>Followers: <span>{user.followers.length}</span></p>
           <p>Followings: <span>{user.followings.length}</span></p>
+          
         </div>
+     
       </div>
-        <Link style={{textDecoration: 'none'}} to={`/profileDetail/${user._id}`}>
-          <h3 className="myProfile">My Profile</h3>
-        </Link>
+      
     </div>
     </div>
   )

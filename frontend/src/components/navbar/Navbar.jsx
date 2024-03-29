@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineClose, AiOutlineFileImage, AiOutlineLogout, AiOutlineSearch, AiOutlineUser,AiOutlineFileText, AiOutlineForm } from 'react-icons/ai'
 import { AiOutlineMessage } from 'react-icons/ai';
+import { FaSignOutAlt, FaRegPaperPlane } from 'react-icons/fa';
 import {GiHamburgerMenu} from 'react-icons/gi'
 import { logout, updateUser } from '../../redux/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -114,7 +115,7 @@ return (
     <div className="wrapper">
       <div className="left">
         <Link to='/'>
-          WELLTH
+         <b> WELLTH</b>
         </Link>
       </div>
       <div className="center">
@@ -136,21 +137,19 @@ return (
       </div>
       <div className="right">
         <Link to='/upload' style={{ textDecoration: 'none', color: 'inherit' }}>
-          Upload
+        <FaRegPaperPlane /> POST
         </Link>
-        <Link to="/chat">
+        
+        <Link to="/chat" className="icons">
           <AiOutlineMessage />
         </Link>
-        <Link to="/articleform">
+        <Link to="/articleform" className="icons">
         <AiOutlineForm />
         </Link>
-        <Link to="/articlelist">
+        <Link to="/articlelist" className="icons">
         <AiOutlineFileText />
         </Link>
-        <div className="icons">
-          <AiOutlineUser />
-          <AiOutlineLogout onClick={handleLogout} />
-        </div>
+       
        
         <img
           src={user?.profileImg ? `http://localhost:5000/images/${user?.profileImg}` : man}
@@ -163,6 +162,11 @@ return (
             <span onClick={handleShowForm}>Update Profile</span>
           </div>
         }
+         <div className="icons">
+         
+         <FaSignOutAlt onClick={handleLogout} />
+          <p onClick={handleLogout} style={{ textDecoration: 'none', color: 'inherit',fontSize:'18px'}}>LOGOUT</p>
+        </div>
       </div>
         {
           showForm &&

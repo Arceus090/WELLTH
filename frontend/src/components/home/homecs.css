@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 3fr 6.5fr 3fr;
     gap: 10rem;
+    margin-top: 100px;
 }
 
 /* RESPONSIVE */

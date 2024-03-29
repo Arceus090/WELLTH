@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import './suggested.css'
+import './Recomend.css'
 import man from '../../assets/noman.png'
 import { capitalizeFirstLetter } from '../util/capitalizeFirstLetter'
 import { useDispatch, useSelector } from 'react-redux'
@@ -53,16 +53,10 @@ const SuggestedUsers = () => {
     <div className="suggested-user-container">
     <div className="container">
       <div className="wrapper">
-        <div className="myProfile">
-        <img src={user?.profileImg ? `http://localhost:5000/images/${user?.profileImg}` : man} className="profileUserImg" />
-          <div className="profileData">
-            <span>{capitalizeFirstLetter(user.username)}</span>
-            <span className="shortBio">{user?.bio ? user.bio : "Live is full of adventures"}</span>
-          </div>
-        </div>
+        
         {suggestedUsers?.length > 0 ? (
           <div className="suggestedUsers">
-              <h3 className="title">Recommended users to follow</h3>
+              <h3 className="title">Recommended Users</h3>
               {suggestedUsers?.map((suggestedUser) => (
                 <div className="suggestedUser" key={suggestedUser._id}>
                   <Link to={`/profileDetail/${suggestedUser._id}`}>

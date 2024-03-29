@@ -37,19 +37,13 @@ export const authSlice = createSlice({
                 state.user.followings.push(action.payload);
             }
         },
-        bookmarkPost(state, action) {
-            if (state.user.bookmarkedPosts.some(post => post._id === action.payload._id)) {
-                state.user.bookmarkedPosts = state.user.bookmarkedPosts.filter((post) => post._id !== action.payload._id);
-            } else {
-                state.user.bookmarkedPosts.push(action.payload);
-            }
-        },
+       
         updateUser(state, action) {
             state.user = action.payload;
         },
     },
 });
 
-export const { login, register, logout, handleFollow, bookmarkPost, updateUser } = authSlice.actions;
+export const { login, register, logout, handleFollow, updateUser } = authSlice.actions;
 
 export default authSlice.reducer;

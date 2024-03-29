@@ -16,11 +16,17 @@ const PostDetails = () => {
   const [isCommentLong, setIsCommentLong] = useState(false)
   const { token } = useSelector((state) => state.auth)
   const { id } = useParams()
+  
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/post/find/${id}`)
+        const res = await fetch(`http://localhost:5000/post/find/${id}`, {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        })
+        
         const data = await res.json()
         setPost(data)
       } catch (error) {
@@ -76,7 +82,7 @@ const PostDetails = () => {
       })
 
       const data = await res.json()
-      setComments(prev => [...prev, data])
+      setComments([...comments, data])
       setCommentText("")
      } catch (error) {
       console.error(error)
@@ -86,7 +92,7 @@ const PostDetails = () => {
   return (
    
     <div className=" posts-details-container">
-    <div className="container">
+    <div className="cont">
       <div className="wrapper">
         <div className="left">
           <img src={post?.photo && `http://localhost:5000/images/${post?.photo}`} />
@@ -94,7 +100,7 @@ const PostDetails = () => {
         <div className="right">
           <div className="wrapperTopSide">
             <Link to={`/profileDetail/${post?.user?._id}`} className="topRightSide">
-              {/* <img src={man} className="profileImage" /> */}
+             
               <img src={post?.user?.profileImg ? `http://localhost:5000/images/${post.user.profileImg}` : man} className="profileImage" />
 
               <div className="userData">
@@ -105,11 +111,13 @@ const PostDetails = () => {
           </div>
           {/* comments */}
           <div className="comments">
-            {comments?.length > 0 ?
-              comments.map((comment) => (
-                <Comment c={comment} key={comment._id} />
-              ))
-              : <h3 className="noCommentsMsg">No comments yet</h3>}
+            
+              {comments?.length > 0 ?
+    comments.map((comment) => (
+        <Comment c={comment.commentText} key={comment._id} />
+    ))
+    : <h3 className="noCommentsMsg">No comments yet</h3>
+}
           </div>
           {/* comment input field */}
           <div className="postCommentSection">

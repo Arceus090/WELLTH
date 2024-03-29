@@ -9,75 +9,62 @@
 .upload-container .wrapper {
     height: 60vh;
     width: 27.5vw;
-    border: 1px solid #333;
+    border: 2px solid #393e46;
     border-radius: 20px;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
+    padding: 2rem;
 }
 
 .upload-container .wrapper > h2 {
-    color: rgb(23, 16, 151);
+    color:  #393e46; 
     text-align: center;
-    margin: 2.5rem 0;
-    font-size: 30px;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
 }
 
 .upload-container form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 42px;
+    gap: 1.5rem;
 }
 
 .upload-container form > input {
-    width: 50%;
+    width: 100%;
+    padding: 0.5rem;
     outline: none;
-    border: none;
-    border-bottom: 1px solid #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 .upload-container form > label {
-    align-self: center;
-    width: 50%;
+    width: fit-content;
     cursor: pointer;
-    transition: 150ms all;
+    transition: color 0.2s ease-in-out;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.5rem;
 }
 
 .upload-container form > label:hover {
-    color: #444;
+    color: #555;
 }
 
 .upload-container form > button {
     outline: none;
-    background-color: blue;
+    background-color: #393e46; 
     color: #fff;
     border-radius: 12px;
     padding: 0.5rem 1.25rem;
-    font-size: 18px;
+    font-size: 1rem;
     cursor: pointer;
     border: 1px solid transparent;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .upload-container form > button:hover {
     background-color: #fff;
-    border-color: blue;
-    color: blue;
-}
-
-/* responsive */
-@media only screen and (max-width: 992px) {
-    .upload-container .wrapper {
-        height: 62.5vh;
-        width: 32.5vw;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .upload-container .wrapper {
-        height: 67.5vh;
-        width: 40vw;
-    }
+    border-color:  #393e46; 
+    color:  #393e46; 
 }

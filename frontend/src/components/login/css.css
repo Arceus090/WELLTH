@@ -9,7 +9,7 @@
     left: 0;
     z-index: 9999999999;
     background: rgba(0, 0, 0, 0.4);
-    background-image: url('../../assets/soo.jpg');
+    background-image: url('../../assets/grey.jpg');
     background-blend-mode: darken;
     background-position: center;
     background-size: cover;
@@ -49,7 +49,7 @@
 .loginRightSide > h2{
     text-align: center;
     font-size: 36px;
-    color: #bc9e80;
+    color: #393e46;
     margin: 2.5rem 0;
 }
 
@@ -86,7 +86,7 @@
     margin-top: 2.5rem;
     outline: none;
     border: 1px solid transparent;
-    background-color: #bc9e80;
+    background-color: #393e46;
     color: #fff;
     font-weight: 500;
     font-size: 20px;
@@ -96,8 +96,8 @@
 }
 
 .loginForm > .submitBtn:hover{
-    border-color:  #bc9e80;
-    color:  #bc9e80;
+    border-color:  #393e46;
+    color:  #393e46;
     background-color: #fff;
 }
 

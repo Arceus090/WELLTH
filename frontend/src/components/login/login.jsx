@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import img from '../../assets/login.jpg'
+import img from '../../assets/login2.jpg'
 import {Link, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'

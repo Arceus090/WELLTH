@@ -29,16 +29,7 @@ const Chat = () => {
   return (
     <div className="chat-container">
     <div className="main-container">
-      <div className="left-panel">
-        <h2>Mental Health Information</h2>
-       
-        <h2>News and Articles</h2>
-        {/* Add news and articles here */}
-        <p>News 1</p>
-        <p>News 2</p>
-        <p>Article 1</p>
-        <p>Article 2</p>
-      </div>
+     
       <div className="right-panel">
         <div className="chatbox-container">
           <header>

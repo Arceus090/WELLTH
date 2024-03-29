@@ -1,8 +1,8 @@
 import React from 'react'
 import Posts from '../posts/Posts'
-import ProfileCard from '../profileCard/ProfileCard'
-import Rightside from '../rightside/Rightside'
-import SuggestedUsers from '../suggestedUser/SuggestedUser'
+import ProfileCard from '../Card/ProfileCard'
+import Rightside from '../Friend/Friend'
+import SuggestedUsers from '../Recommend/Recommend'
 import './homecs.css'
 
 const Home = () => {
@@ -10,10 +10,13 @@ const Home = () => {
     <div className="home-container">
       <div className="left">
         <ProfileCard />
-        <SuggestedUsers />
+        <Rightside />  
       </div>
       <Posts />
-      <Rightside />
+      <div>
+      <SuggestedUsers />
+      
+      </div>
     </div>
   )
 }

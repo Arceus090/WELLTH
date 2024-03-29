@@ -7,7 +7,7 @@ import man from '../../assets/noman.png'
 import { capitalizeFirstLetter } from '../util/capitalizeFirstLetter'
 import './comment.css'
 
-const Comment = ({ c }) => {
+const Comment = ({ c}) => {
    const {token, user} = useSelector((state) => state.auth)
    const [comment, setComment] = useState(c)
    const [isLiked, setIsLiked] = useState(comment?.likes?.includes(user?._id))
@@ -42,9 +42,9 @@ const Comment = ({ c }) => {
 
   return (
     <div className="comment-container">
-    <div className="container">
+    <div className="contoiner">
       <div className="commentLeft">
-        <img src={man} className="commentImg"/>
+      <img src={user?.profileImg ? `http://localhost:5000/images/${user.profileImg}` : man} className="profileUserImg"/>
         <div className="commentData">
           <span>{comment?.user?.username ? capitalizeFirstLetter(comment?.user?.username) : ''}</span>
           <span className="commentTimeago">{format(comment?.createdAt)}</span>

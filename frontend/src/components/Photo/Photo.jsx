@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import postdemoimg from '../../assets/sui.jpg'
-import './postphoto.css'
+import './photo.css'
 
 const PostPhoto = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false)

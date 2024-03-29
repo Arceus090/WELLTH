@@ -36,8 +36,9 @@ const ArticlesList = () => {
                     {articles.map((article) => (
                         <li key={article._id} className="article-item">
                             <h3>{article.title}</h3>
+                            <p>Published by: {article.publishedBy}</p>
                             <p>{article.message}</p>
-                            <p>{article.publishedBy}</p>
+                            
                            
                         </li>
                     ))}

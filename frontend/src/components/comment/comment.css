@@ -1,8 +1,19 @@
-.comment-container .container {
+.comment-container .contoiner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.25rem 0.5rem;
+
+  
+   
+    margin-bottom: 1rem;
+    display: flex;
+   
+    gap: 1.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0; /* Adjusted border color */
+   
+    overflow-y: auto; /* Added vertical scrollbar when necessary */
 }
 
 .comment-container .commentLeft {
@@ -48,6 +59,14 @@
     flex-direction: column;
     gap: 0.25rem;
     cursor: pointer;
+}
+.comment-container .profileUserImg {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    
 }
 
 /* RESPONSIVE */

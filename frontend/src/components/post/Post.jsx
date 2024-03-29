@@ -9,10 +9,10 @@ import { capitalizeFirstLetter } from '../util/capitalizeFirstLetter';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BiMessageRounded } from 'react-icons/bi';
-import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
+
 import './post.css';
 import Comment from '../comment/Comment';
-import { bookmarkPost } from '../../redux/authSlice';
+
 
 const Post = ({ post }) => {
   const { token, user } = useSelector((state) => state.auth);
@@ -21,14 +21,14 @@ const Post = ({ post }) => {
   const [isCommentEmpty, setIsCommentEmpty] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const [showComment, setShowComment] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (post) {
       setIsLiked(post.likes?.includes(user?._id));
-      setIsBookmarked(user?.bookmarkedPosts?.some(bookmarkedPost => bookmarkedPost?._id === post?._id));
+     
     }
   }, [post, user]);
 
@@ -79,25 +79,7 @@ const Post = ({ post }) => {
     }
   };
 
-  const handleBookmark = async () => {
-    try {
-      if (!post || !post._id) {
-        console.error("Invalid post data:", post);
-        return;
-      }
-
-      await fetch(`http://localhost:5000/user/bookmark/${post._id}`, {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        },
-        method: "PUT"
-      });
-      dispatch(bookmarkPost(post));
-      setIsBookmarked(prev => !prev);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+ 
 
   const handlePostComment = async () => {
     if (commentText === '') {
@@ -159,27 +141,23 @@ const Post = ({ post }) => {
             {post?.location && <div className="location">Location: {post?.location}</div>}
             <img className="postImg" src={post?.photo ? `http://localhost:5000/images/${post?.photo}` : noman} />
           </div>
-          <div className={`$"controls"} ${showComment && showComment}`}>
+          <div className={`"controls" ${showComment && showComment}`}>
             <div className="controlsLeft">
               {
                 isLiked
                   ? <AiFillHeart onClick={handleLikePost} />
                   : <AiOutlineHeart onClick={handleLikePost} />
               }
+              <span className="controlsRight">
               <BiMessageRounded onClick={() => setShowComment(prev => !prev)} />
+              </span>
             </div>
-            <div className="controlsRight" onClick={handleBookmark}>
-              {
-                isBookmarked
-                  ? <BsBookmarkFill />
-                  : <BsBookmark />
-              }
-            </div>
+           
           </div>
           {
             showComment &&
-            <>
-              <div className="comments">
+            <div className='sui'>
+              <div className="comments" >
                 {
                   comments?.length > 0 ? comments.map((comment) => (
                     <Comment key={comment._id} c={comment} />
@@ -197,7 +175,7 @@ const Post = ({ post }) => {
                 <button onClick={handlePostComment}>Post</button>
               </div>
               {isCommentEmpty && <span className="emptyCommentMsg">You can't post empty comment!</span>}
-            </>
+            </div>
           }
         </div>
       </div>

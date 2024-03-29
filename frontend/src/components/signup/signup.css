@@ -4,13 +4,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:  #bc9e80;
+    background-color:  #393e46;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 9999999999;
     background-color: rgba(0, 0, 0, 0.4);
-    background-image: url('../../assets/soo.jpg');
+    background-image: url('../../assets/grey.jpg');
     background-blend-mode: darken;
     background-position: center;
     background-size: cover;
@@ -49,7 +49,7 @@
 .signUpRightSide > h2{
     text-align: center;
     font-size: 36px;
-    color:  #bc9e80;
+    color:  #393e46;
     margin-top: 2.5rem;
 }
 
@@ -82,7 +82,7 @@
     outline: none;
     border: 1px solid transparent;
     padding: 0.5rem 1rem;
-    background-color:  #bc9e80;
+    background-color:  #393e46;
     color: #fff;
     font-weight: 500;
     font-size: 20px;
@@ -91,8 +91,8 @@
 }
 
 .signUpForm > .submitBtn:hover{
-    border-color:  #bc9e80;
-    color:  #bc9e80;
+    border-color: #393e46;
+    color:  #393e46;
     background-color: #fff;
 }
 

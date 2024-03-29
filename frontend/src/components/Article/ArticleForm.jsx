@@ -136,8 +136,9 @@ const ArticleForm = () => {
                     {articles.map((article) => (
                         <li key={article._id} className="article-item">
                             <h3>{article.title}</h3>
+                            <p>Published by:{article.publishedBy}</p>
                             <p>{article.message}</p>
-                            <p>{article.publishedBy}</p>
+                            
                             <button onClick={() => handleUpdate(article._id)} className="article-button">Update</button>
                             <button onClick={() => handleDelete(article._id)} className="article-button">Delete</button>
                         </li>
