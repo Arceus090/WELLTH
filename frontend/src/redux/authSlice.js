@@ -1,10 +1,10 @@
-// authSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     user: null,
     token: null,
     loginTime: null,
+    role: null, // Add role field to store user's role
 };
 
 export const authSlice = createSlice({
@@ -16,17 +16,20 @@ export const authSlice = createSlice({
             state.user = action.payload.others;
             state.token = action.payload.token;
             state.loginTime = Date.now();
+            state.role = action.payload.others.role; // Store user's role
         },
         register(state, action) {
             localStorage.clear();
             state.user = action.payload.others;
             state.token = action.payload.token;
             state.loginTime = Date.now();
+            state.role = action.payload.others.role; // Store user's role
         },
         logout(state) {
             state.user = null;
             state.token = null;
             state.loginTime = null;
+            state.role = null; // Clear user's role on logout
             localStorage.clear();
         },
         handleFollow(state, action) {
@@ -37,7 +40,6 @@ export const authSlice = createSlice({
                 state.user.followings.push(action.payload);
             }
         },
-       
         updateUser(state, action) {
             state.user = action.payload;
         },

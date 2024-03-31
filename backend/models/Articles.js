@@ -10,10 +10,7 @@ const ArticleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    images: {
-        type: String, // Array of image URLs
-        default: ''
-    },
+  
     publishedBy: {
         type: String,
         required: true

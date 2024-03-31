@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import {AiOutlineFileImage} from 'react-icons/ai'
 import { useState } from 'react'
-
+import { notification } from 'antd';
 const Upload = () => {
   const [state, setState] = useState({})
   const [photo, setPhoto] = useState("")
@@ -48,8 +48,18 @@ const Upload = () => {
       })
       const data = await res.json()
       navigate('/')
+      
+      notification.success({
+        message: "Post created successfully",
+        placement: "bottomRight",
+      });
       } catch (error) {
        console.error(error)
+      
+       notification.error({
+        message: "Error! Post not created",
+        placement: "bottomRight",
+      });
     }
   }
 

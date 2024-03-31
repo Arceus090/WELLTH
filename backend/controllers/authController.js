@@ -8,6 +8,7 @@ authController.post('/register', async(req, res) => {
         const isExisting = await User.findOne({email: req.body.email})
         if(isExisting){
             throw new Error("This email is already been used.")
+           
         }  
 
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -16,11 +17,12 @@ authController.post('/register', async(req, res) => {
 
         const {password, ...others} = newUser._doc 
         const token = jwt.sign({id: newUser._id}, process.env.JWT_SECRET, {expiresIn: '5h'})
-
+        
         return res.status(201).json({others, token})
 
     } catch (error) {
         return res.status(500).json(error.message)
+        
     }
 })
 
@@ -39,11 +41,7 @@ authController.post('/login', async(req, res) => {
 
        
         const {password, ...others} = user._doc
-        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '5h'})
-        
-        if (user.email === 'admin@gmail.com' && req.body.password === 'admin') {
-            return res.status(200).json({others, token, isAdmin: true})
-        }
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '100h'})
         return res.status(200).json({others, token})
        
     } catch (error) {

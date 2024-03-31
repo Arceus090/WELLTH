@@ -9,7 +9,7 @@ import { capitalizeFirstLetter } from '../util/capitalizeFirstLetter';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BiMessageRounded } from 'react-icons/bi';
-
+import { notification } from 'antd';
 import './post.css';
 import Comment from '../comment/Comment';
 
@@ -59,11 +59,35 @@ const Post = ({ post }) => {
         },
         method: 'DELETE'
       });
+      localStorage.setItem('postDeleted', 'true');
       window.location.reload();
     } catch (error) {
       console.error(error);
+      localStorage.setItem('postDeleted', 'false');
+      window.location.reload();
     }
   };
+  
+  // Add this code to your Post component to handle the notification after the reload
+  useEffect(() => {
+    const postDeleted = localStorage.getItem('postDeleted');
+    if (postDeleted === 'true') {
+      notification.success({
+        message: "Post deleted successfully",
+        placement: "bottomRight",
+      });
+    } else if (postDeleted === 'false') {
+      notification.error({
+        message: "Error! Post not deleted",
+        placement: "bottomRight",
+      });
+    }
+    localStorage.removeItem('postDeleted');
+  }, []);
+  
+  
+
+  
 
   const handleLikePost = async () => {
     try {

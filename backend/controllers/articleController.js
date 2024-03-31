@@ -10,8 +10,7 @@ articleController.post('/', verifyToken, async (req, res) => {
         // Creating a new article object
         const newArticle = new Article({
             title: req.body.title,
-            message: req.body.message,
-            images: req.body.images,
+            message: req.body.message,           
             publishedBy: req.body.publishedBy,
         });
 
@@ -71,5 +70,8 @@ articleController.delete('/:id', verifyToken, async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+
+
 
 module.exports = articleController;

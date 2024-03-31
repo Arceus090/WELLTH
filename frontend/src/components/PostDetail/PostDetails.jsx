@@ -110,15 +110,15 @@ const PostDetails = () => {
             </Link>
           </div>
           {/* comments */}
-          <div className="comments">
-            
-              {comments?.length > 0 ?
-    comments.map((comment) => (
-        <Comment c={comment.commentText} key={comment._id} />
-    ))
-    : <h3 className="noCommentsMsg">No comments yet</h3>
-}
-          </div>
+                <div className="comments">
+        {comments?.length > 0 ? (
+          comments.map((comment) => (
+            <Comment key={comment._id} commentText={comment.commentText} />
+          ))
+        ) : (
+          <h3 className="noCommentsMsg">No comments yet</h3>
+        )}
+      </div>
           {/* comment input field */}
           <div className="postCommentSection">
             <input value={commentText} onChange={(e) => setCommentText(e.target.value)} type="text" placeholder='Type comment...' className="inputSection" />

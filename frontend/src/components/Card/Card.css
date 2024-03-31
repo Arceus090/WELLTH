@@ -1,5 +1,5 @@
 .profile-card-container .container {
-    height: 300px;
+    height: 380px;
     width: 100%;
     border: 1px solid #ddd; /* Lighter border color */
     border-radius: 20px;
@@ -44,9 +44,10 @@
 
 .profile-card-container .usernameAndCreatedAt {
     margin-top: 20px;
-    text-align: center;
+    text-align:left;
     color: #666; /* Text color */
-    padding:5px;
+    padding:15px;
+   
     
     
 }
@@ -54,28 +55,10 @@
 .profile-card-container .usernameAndCreatedAt span {
     font-weight: bold;
     font-size: 18px; /* Increased font size */
+    
 }
 
 
-.profile-card-container .bottom {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.profile-card-container .bottom > p {
-    font-weight: 600;
-    font-size: 16px;
-    color: #666; /* Slightly darker text color */
-}
-
-.profile-card-container .bottom > p > span {
-    font-weight: normal;
-    padding: 5px;
-}
 
 .profile-card-container .myProfile {
     text-decoration: none;
@@ -83,9 +66,17 @@
     font-size: 20px;
     transition: color 0.3s; /* Smooth transition */
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .profile-card-container .myProfile:hover {
     color: #ffffff;
+}
+
+
+.profile-card-container .social-icon {
+    margin-top: 10px;
+    margin-left: 10px; /* Add spacing between social icons */
+    font-size: 20px; /* Adjust the size of social icons */
+    color: #666; /* Adjust the color of social icons */
 }

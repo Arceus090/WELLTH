@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
+import { notification } from 'antd';
 import { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
@@ -19,7 +20,7 @@ const Signup = () => {
     e.preventDefault()
     if(username === '' || email === '' || password === '') return
     console.log(username, email, password)
-
+    
     try {
       const res = await fetch(`http://localhost:5000/auth/register`, {
         headers: {
@@ -34,10 +35,21 @@ const Signup = () => {
       console.log(data)
       dispatch(register(data))
       navigate('/')
+      
+      notification.success({
+        message: "Register successful!!",
+        placement: "bottomRight",
+      });
+      
     } catch (error) {
       setError(true)
       setTimeout(() => {
         setError(false)
+        
+        notification.error({
+          message: "Register unsuccessful!!",
+          placement: "bottomRight",
+        });
       }, 3000)
     }
   }

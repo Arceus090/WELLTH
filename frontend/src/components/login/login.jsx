@@ -5,6 +5,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../redux/authSlice.js'
+import {notification} from "antd";
 import './css.css'
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -29,17 +30,25 @@ const Login = () => {
 
       const data = await res.json()
       
-      if (data.isAdmin) {
-        navigate('/admindashboard')
-      } else {
+      
         dispatch(login(data))
         navigate('/')
-      }
+       
+        
+        notification.success({
+          message: "Login successful!!",
+          placement: "bottomRight",
+        });
+        
     } catch (error) {
       setError(true)
       setTimeout(() => {
         setError(false)
       }, 3000)
+      notification.error({
+        message: "Login unsuccessful!!",
+        placement: "bottomRight",
+      });
     }
   }
 
