@@ -33,7 +33,7 @@ const Chat = () => {
       <div className="right-panel">
         <div className="chatbox-container">
           <header>
-            <h1>ANONYMOUS CHATBOX</h1>
+            <h1 className='suii'>ANONYMOUS CHATBOX</h1>
           </header>
           <div className="message-container">
             

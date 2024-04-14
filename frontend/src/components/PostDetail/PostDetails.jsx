@@ -113,7 +113,7 @@ const PostDetails = () => {
                 <div className="comments">
         {comments?.length > 0 ? (
           comments.map((comment) => (
-            <Comment key={comment._id} commentText={comment.commentText} />
+            <Comment key={comment._id} c={comment} />
           ))
         ) : (
           <h3 className="noCommentsMsg">No comments yet</h3>

@@ -16,12 +16,12 @@ import ArticleForm from './components/Article/ArticleForm';
 import ArticleList from './components/Article/ArticleLists';
 
 function App() {
- const {user} = useSelector((state) => state.auth)
+  const {user} = useSelector((state) => state.auth)
+ 
 
-
- useEffect(() => {
-  initializeSessionTimer(); // Start the session timer when the application starts
-}, []);
+  useEffect(() => {
+    initializeSessionTimer(); // Start the session timer when the application starts
+  }, []);
 
   return (
     <div>
@@ -36,9 +36,9 @@ function App() {
         <Route path='/chat' element={user ? <Chat /> : <Navigate to='/login' />} />
         <Route path='/articleform' element={user ? <ArticleForm /> : <Navigate to='/login' />} />
         <Route path='/articlelist' element={user ? <ArticleList /> : <Navigate to='/login' />} />
-       
+
       </Routes>
-    
+
     </div>
   );
 }

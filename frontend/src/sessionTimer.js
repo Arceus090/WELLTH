@@ -9,5 +9,5 @@ export const initializeSessionTimer = () => {
         message: "You have been using this app for more than an hour. Please take a break",
         placement: "bottomRight",
       });
-    }, 3600000); // Alert every minute
+    }, 36000000); // Alert every hour
 };

@@ -9,13 +9,12 @@ import { logout, updateUser } from '../../redux/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import man from '../../assets/noman.png'
 import './navbar.css'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState,useEffect } from 'react'
 
 
 
 const Navbar = () => {
-  const {token, user} = useSelector((state) => state.auth)
+  const {token, user, role} = useSelector((state) => state.auth)
   const [searchText, setSearchText] = useState("")
   const [state, setState] = useState({})
   const [photo, setPhoto] = useState("")
@@ -27,7 +26,6 @@ const Navbar = () => {
 
 const [showModal, setShowModal] = useState(false)
 const [showForm, setShowForm] = useState(false)
-
 const [allUsers, setAllUsers] = useState([])
 const [filteredUsers, setFilteredUsers] = useState([])
 const dispatch = useDispatch()
@@ -110,6 +108,7 @@ const handleUpdateProfile = async(e) => {
 
 
 return (
+
   <div className="navbar-container">
   <div className="container">
     <div className="wrapper">
@@ -143,9 +142,7 @@ return (
         <Link to="/chat" className="icons">
           <AiOutlineMessage />
         </Link>
-        <Link to="/articleform" className="icons">
-        <AiOutlineForm />
-        </Link>
+        {role === 'admin' && <Link to="/articleform" className="icons"><AiOutlineForm /></Link>}
         <Link to="/articlelist" className="icons">
         <AiOutlineFileText />
         </Link>
@@ -167,6 +164,7 @@ return (
          <FaSignOutAlt onClick={handleLogout} />
           <p onClick={handleLogout} style={{ textDecoration: 'none', color: 'inherit',fontSize:'18px'}}>LOGOUT</p>
         </div>
+      
       </div>
         {
           showForm &&
@@ -264,11 +262,13 @@ return (
                 </div>
               </div>}
             </div>}
+           
           {!showMobileNav && <GiHamburgerMenu onClick={() => setShowMobileNav(prev => !prev)} className="hamburgerIcon" />}
         </div>
       }
     </div>
     </div>
+   
   )
 }
 

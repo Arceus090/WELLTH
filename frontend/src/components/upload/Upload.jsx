@@ -47,6 +47,7 @@ const Upload = () => {
         body: JSON.stringify({...state, photo: filename})
       })
       const data = await res.json()
+    
       navigate('/')
       
       notification.success({

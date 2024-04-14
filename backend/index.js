@@ -11,7 +11,6 @@ const uploadController = require('./controllers/uploadController');
 const chatController = require('./controllers/chatController');
 const articleController = require('./controllers/articleController'); 
 const verifyToken = require('./middleware/verifyToken');
-
 // CONNECTING TO THE DATABASE (mongoDB)
 mongoose
   .connect(process.env.MONGO_URL)
@@ -29,10 +28,6 @@ app.use('/images', express.static('public/images'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-
-
-
 app.use('/auth', authController);
 app.use('/user', userController);
 app.use('/chat', chatController);

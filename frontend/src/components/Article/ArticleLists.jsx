@@ -37,7 +37,7 @@ const ArticlesList = () => {
                         <li key={article._id} className="article-item">
                             <h3>{article.title}</h3>
                             <p>Published by: {article.publishedBy}</p>
-                            <p>{article.message}</p>
+                            <p className='sui'>{article.message}</p>
                             
                            
                         </li>

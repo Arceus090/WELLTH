@@ -31,15 +31,11 @@ authController.post('/login', async(req, res) => {
         const user = await User.findOne({email: req.body.email})
         if(!user){
             throw new Error("Invalid credentials")
-        }
-
-     
+        }  
         const comparePass = await bcrypt.compare(req.body.password, user.password)
         if(!comparePass){
             throw new Error("Invalid credentials")
-        }
-
-       
+        }       
         const {password, ...others} = user._doc
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '100h'})
         return res.status(200).json({others, token})
